@@ -9,3 +9,14 @@ C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Services\bin\Deb
 C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Services\bin\Debug\netstandard2.0\NinjaSubs.Data.pdb
 C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Services\obj\Debug\netstandard2.0\NinjaSubs.Services.dll
 C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Services\obj\Debug\netstandard2.0\NinjaSubs.Services.pdb
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\bin\Debug\netstandard2.0\NinjaSubs.Services.deps.json
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\bin\Debug\netstandard2.0\NinjaSubs.Services.dll
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\bin\Debug\netstandard2.0\NinjaSubs.Services.pdb
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\bin\Debug\netstandard2.0\NinjaSubs.Data.dll
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\bin\Debug\netstandard2.0\NinjaSubs.Data.pdb
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\obj\Debug\netstandard2.0\NinjaSubs.Services.csprojResolveAssemblyReference.cache
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\obj\Debug\netstandard2.0\NinjaSubs.Services.csproj.CoreCompileInputs.cache
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\obj\Debug\netstandard2.0\NinjaSubs.Services.AssemblyInfoInputs.cache
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\obj\Debug\netstandard2.0\NinjaSubs.Services.AssemblyInfo.cs
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\obj\Debug\netstandard2.0\NinjaSubs.Services.dll
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\obj\Debug\netstandard2.0\NinjaSubs.Services.pdb

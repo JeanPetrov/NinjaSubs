@@ -4587,11 +4587,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs\\NinjaSubs.Services\\NinjaSubs.Services.csproj",
+      "projectUniqueName": "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs.Services\\NinjaSubs.Services.csproj",
       "projectName": "NinjaSubs.Services",
-      "projectPath": "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs\\NinjaSubs.Services\\NinjaSubs.Services.csproj",
+      "projectPath": "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs.Services\\NinjaSubs.Services.csproj",
       "packagesPath": "C:\\Users\\Jean\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs\\NinjaSubs.Services\\obj\\",
+      "outputPath": "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs.Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4610,8 +4610,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs\\NinjaSubs.Data\\NinjaSubs.Data.csproj": {
-              "projectPath": "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs\\NinjaSubs.Data\\NinjaSubs.Data.csproj"
+            "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs.Data\\NinjaSubs.Data.csproj": {
+              "projectPath": "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs.Data\\NinjaSubs.Data.csproj"
             }
           }
         }

@@ -3718,11 +3718,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs\\NinjaSubs.Common\\NinjaSubs.Common.csproj",
+      "projectUniqueName": "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs.Common\\NinjaSubs.Common.csproj",
       "projectName": "NinjaSubs.Common",
-      "projectPath": "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs\\NinjaSubs.Common\\NinjaSubs.Common.csproj",
+      "projectPath": "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs.Common\\NinjaSubs.Common.csproj",
       "packagesPath": "C:\\Users\\Jean\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs\\NinjaSubs.Common\\obj\\",
+      "outputPath": "C:\\Users\\Jean\\Desktop\\SoloProject\\NinjaSubs\\NinjaSubs.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
