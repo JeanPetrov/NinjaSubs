@@ -1,0 +1,9 @@
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Data\bin\Debug\netstandard2.0\NinjaSubs.Data.deps.json
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Data\bin\Debug\netstandard2.0\NinjaSubs.Data.dll
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Data\obj\Debug\netstandard2.0\NinjaSubs.Data.csprojResolveAssemblyReference.cache
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Data\obj\Debug\netstandard2.0\NinjaSubs.Data.csproj.CoreCompileInputs.cache
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Data\obj\Debug\netstandard2.0\NinjaSubs.Data.AssemblyInfoInputs.cache
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Data\obj\Debug\netstandard2.0\NinjaSubs.Data.AssemblyInfo.cs
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Data\bin\Debug\netstandard2.0\NinjaSubs.Data.pdb
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Data\obj\Debug\netstandard2.0\NinjaSubs.Data.dll
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Data\obj\Debug\netstandard2.0\NinjaSubs.Data.pdb

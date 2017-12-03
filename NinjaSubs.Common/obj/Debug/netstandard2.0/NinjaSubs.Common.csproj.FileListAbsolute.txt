@@ -1,0 +1,9 @@
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Common\bin\Debug\netstandard2.0\NinjaSubs.Common.deps.json
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Common\bin\Debug\netstandard2.0\NinjaSubs.Common.dll
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Common\obj\Debug\netstandard2.0\NinjaSubs.Common.csproj.CoreCompileInputs.cache
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Common\obj\Debug\netstandard2.0\NinjaSubs.Common.AssemblyInfoInputs.cache
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Common\obj\Debug\netstandard2.0\NinjaSubs.Common.AssemblyInfo.cs
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Common\bin\Debug\netstandard2.0\NinjaSubs.Common.pdb
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Common\obj\Debug\netstandard2.0\NinjaSubs.Common.csprojResolveAssemblyReference.cache
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Common\obj\Debug\netstandard2.0\NinjaSubs.Common.dll
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs\NinjaSubs.Common\obj\Debug\netstandard2.0\NinjaSubs.Common.pdb
