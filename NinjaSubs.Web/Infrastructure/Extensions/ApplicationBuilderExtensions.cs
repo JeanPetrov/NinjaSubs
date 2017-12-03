@@ -1,9 +1,11 @@
 ﻿namespace NinjaSubs.Web.Infrastructure.Extensions
 {
     using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
     using NinjaSubs.Data;
+    using System.Threading.Tasks;
 
     public static class ApplicationBuilderExtensions
     {
@@ -12,35 +14,30 @@
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 serviceScope.ServiceProvider.GetService<NinjaSubsDbContext>().Database.Migrate();
+                
+                var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
 
-                //var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
+                Task.Run(async () =>
+                {
+                    var adminRoleExists = await roleManager.RoleExistsAsync(WebConstants.AdminRole);
+                    if (!adminRoleExists)
+                    {
+                        await roleManager.CreateAsync(new IdentityRole(WebConstants.AdminRole));
+                    }
 
-                //Task.Run(async () =>
-                //{
-                //    var adminRoleExists = await roleManager.RoleExistsAsync(GlobalConstants.AdminRoleName);
-                //    if (!adminRoleExists)
-                //    {
-                //        await roleManager.CreateAsync(new IdentityRole(GlobalConstants.AdminRoleName));
-                //    }
+                    var blogAuthorRoleExists = await roleManager.RoleExistsAsync(WebConstants.BlogAuthorRole);
+                    if (!blogAuthorRoleExists)
+                    {
+                        await roleManager.CreateAsync(new IdentityRole(WebConstants.BlogAuthorRole));
+                    }
 
-                //    var studentRoleExists = await roleManager.RoleExistsAsync(GlobalConstants.StudentRoleName);
-                //    if (!studentRoleExists)
-                //    {
-                //        await roleManager.CreateAsync(new IdentityRole(GlobalConstants.StudentRoleName));
-                //    }
+                    var translatorRoleExists = await roleManager.RoleExistsAsync(WebConstants.TranslatorRole);
+                    if (!blogAuthorRoleExists)
+                    {
+                        await roleManager.CreateAsync(new IdentityRole(WebConstants.TranslatorRole));
+                    }
 
-                //    var trainerRoleExists = await roleManager.RoleExistsAsync(GlobalConstants.TrainerRoleName);
-                //    if (!trainerRoleExists)
-                //    {
-                //        await roleManager.CreateAsync(new IdentityRole(GlobalConstants.TrainerRoleName));
-                //    }
-
-                //    var blogAuthorRoleExists = await roleManager.RoleExistsAsync(GlobalConstants.BlogAuthorRolename);
-                //    if (!blogAuthorRoleExists)
-                //    {
-                //        await roleManager.CreateAsync(new IdentityRole(GlobalConstants.BlogAuthorRolename));
-                //    }
-                //}).Wait();
+                }).Wait();
             }
 
             return app;

@@ -4,6 +4,8 @@
     {
         public const int UserFullNameMinLength = 3;
         public const int UserFullNameMaxLength = 50;
+        public const int UserUserNameMinLenght = 3;
+        public const int UserUserNameMaxLenght = 50;
 
         public const int SubtitlesTitleMinLength = 2;
         public const int SubtitlesTitleMaxLength = 50;

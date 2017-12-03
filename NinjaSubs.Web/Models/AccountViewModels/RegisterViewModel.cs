@@ -1,13 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using NinjaSubs.Data;
 
 namespace NinjaSubs.Web.Models.AccountViewModels
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
+    using static DataConstants;
+
     public class RegisterViewModel
     {
+        [Required]
+        [StringLength(UserFullNameMaxLength, ErrorMessage = "The {0} must be between {2} and {1} characters.", MinimumLength = UserFullNameMinLength)]
+        public string Username { get; set; }
+
+        [Required]
+        [StringLength(UserFullNameMaxLength, ErrorMessage = "The {0} must be between {2} and {1} characters.", MinimumLength = UserFullNameMinLength)]
+        [Display(Name = "Full Name")]
+        public string FullName { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime Birthdate { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

@@ -26,7 +26,10 @@
             services.AddDbContext<NinjaSubsDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<User, IdentityRole>()
+            services.AddIdentity<User, IdentityRole>(options =>
+            {
+                options.Password.RequireNonAlphanumeric = false;
+            })
                 .AddEntityFrameworkStores<NinjaSubsDbContext>()
                 .AddDefaultTokenProviders();
 
