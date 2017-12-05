@@ -5099,6 +5099,7 @@
         "dependencies": {
           "AutoMapper": "6.2.1",
           "Microsoft.EntityFrameworkCore": "2.0.1",
+          "NinjaSubs.Common": "1.0.0",
           "NinjaSubs.Data": "1.0.0"
         },
         "compile": {

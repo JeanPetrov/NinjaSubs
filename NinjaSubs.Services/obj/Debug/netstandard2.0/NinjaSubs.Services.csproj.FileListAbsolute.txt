@@ -20,3 +20,7 @@ C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\obj\Debug\netstan
 C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\obj\Debug\netstandard2.0\NinjaSubs.Services.AssemblyInfo.cs
 C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\obj\Debug\netstandard2.0\NinjaSubs.Services.dll
 C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\obj\Debug\netstandard2.0\NinjaSubs.Services.pdb
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\bin\Debug\netstandard2.0\NinjaSubs.Common.dll
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\bin\Debug\netstandard2.0\NinjaSubs.Common.pdb
+C:\Users\Jean\Desktop\SoloProject\NinjaSubs\NinjaSubs.Services\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.xml

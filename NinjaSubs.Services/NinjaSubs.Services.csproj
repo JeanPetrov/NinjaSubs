@@ -10,11 +10,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NinjaSubs.Common\NinjaSubs.Common.csproj" />
     <ProjectReference Include="..\NinjaSubs.Data\NinjaSubs.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Admin\" />
+    <Reference Include="Microsoft.AspNetCore.Mvc.ViewFeatures">
+      <HintPath>..\..\..\..\..\..\program files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.viewfeatures\2.0.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

@@ -29,9 +29,4 @@
     <ProjectReference Include="..\NinjaSubs.Services\NinjaSubs.Services.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Controllers\" />
-    <Folder Include="Areas\Admin\Models\" />
-  </ItemGroup>
-
 </Project>

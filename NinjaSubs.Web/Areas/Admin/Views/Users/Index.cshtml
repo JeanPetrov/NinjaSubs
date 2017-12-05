@@ -1,0 +1,72 @@
+﻿@model UserListingsViewModel
+
+@{
+    ViewData["Title"] = "All Users";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Username
+            </th>
+            <th>
+                E-mail
+            </th>
+            <th>
+                Current roles
+            </th>
+            <th>
+                Add role
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var userWithRoles in Model.UsersWithRoles)
+        {
+            <tr>
+                <th>
+                    @userWithRoles.User.Username
+                </th>
+                <th>
+                    @userWithRoles.User.Email
+                </th>
+                <th>
+                    <form asp-action="RemoveFromRole" method="post">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <input type="hidden" name="UserId" value="@userWithRoles.User.Id" />
+                                @Html.DropDownList("Role",
+                                                   userWithRoles.Roles,
+                                                   "--Select--",
+                                                   new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-4">
+                                <input class="btn btn-sm btn-danger" type="submit" value="Remove From Role" />
+                            </div>
+                        </div>
+                    </form>
+                </th>
+                <th>
+                    <form asp-action="AddToRole" method="post">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <input type="hidden" name="UserId" value="@userWithRoles.User.Id" />
+                                @Html.DropDownList("Role",
+                                                   userWithRoles.RolesNotIn,
+                                                   "--Select--",
+                                                   new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-4">
+                                <input class="btn btn-sm btn-primary" type="submit" value="Add To Role" />
+                            </div>
+                        </div>
+                    </form>
+
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
