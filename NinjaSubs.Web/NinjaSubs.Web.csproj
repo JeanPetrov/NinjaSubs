@@ -6,7 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Admin\Models\Users\AddOrRemoveUserFromRoleFormModel.cs" />
     <Compile Remove="Models\User.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Areas\Admin\Views\Users\Confirm.cshtml" />
   </ItemGroup>
 
 

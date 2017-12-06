@@ -34,36 +34,61 @@
                     @userWithRoles.User.Email
                 </th>
                 <th>
-                    <form asp-action="RemoveFromRole" method="post">
-                        <div class="row">
-                            <div class="col-md-7">
-                                <input type="hidden" name="UserId" value="@userWithRoles.User.Id" />
-                                @Html.DropDownList("Role",
+                    @if (userWithRoles.Roles.Any())
+                    {
+                        <form asp-action="RemoveFromRole" method="post">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <input type="hidden" name="UserId" value="@userWithRoles.User.Id" />
+                                    <input type="hidden" name="Username" value="@userWithRoles.User.Username" />
+                                    @Html.DropDownList("Role",
                                                    userWithRoles.Roles,
                                                    "--Select--",
                                                    new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="btn btn-sm btn-danger" type="submit" value="Remove From Role" />
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <input class="btn btn-sm btn-danger" type="submit" value="Remove From Role" />
+                        </form>
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>This user is not in any role.</p>
                             </div>
                         </div>
-                    </form>
+                    }
                 </th>
                 <th>
-                    <form asp-action="AddToRole" method="post">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <input type="hidden" name="UserId" value="@userWithRoles.User.Id" />
-                                @Html.DropDownList("Role",
+                    @if (userWithRoles.RolesNotIn.Any())
+                    {
+                        <form asp-action="AddToRole" method="post">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <input type="hidden" name="UserId" value="@userWithRoles.User.Id" />
+                                    @Html.DropDownList("Role",
                                                    userWithRoles.RolesNotIn,
                                                    "--Select--",
                                                    new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="btn btn-sm btn-primary" type="submit" value="Add To Role" />
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <input class="btn btn-sm btn-primary" type="submit" value="Add To Role" />
+                        </form>
+
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>This user is in all roles.</p>
                             </div>
                         </div>
-                    </form>
+
+                    }
 
                 </th>
             </tr>
