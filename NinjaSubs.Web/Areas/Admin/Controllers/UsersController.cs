@@ -3,6 +3,8 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using NinjaSubs.Data.Models;
+    using NinjaSubs.Data.Models.Enums;
+    using NinjaSubs.Services;
     using NinjaSubs.Services.Admin;
     using NinjaSubs.Web.Areas.Admin.Models.Users;
     using NinjaSubs.Web.Infrastructure.Extensions;
@@ -13,12 +15,17 @@
         private readonly IAdminUserService adminUserService;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly UserManager<User> userManager;
+        private readonly ILogService logService;
 
-        public UsersController(IAdminUserService adminUserService, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+        public UsersController(IAdminUserService adminUserService, 
+            UserManager<User> userManager, 
+            RoleManager<IdentityRole> roleManager, 
+            ILogService logService)
         {
             this.adminUserService = adminUserService;
             this.userManager = userManager;
             this.roleManager = roleManager;
+            this.logService = logService;
         }
 
         public async Task<IActionResult> Index()
@@ -58,6 +65,10 @@
             await this.userManager.AddToRoleAsync(user, model.Role);
 
             TempData.AddSuccessMessage($"User {user.UserName} successfully added to the {model.Role} role.");
+
+            var additionalInformation = user.UserName + " " + model.Role;
+            await this.logService.CreateLogAsync(User.Identity.Name, LogType.AddToRole, additionalInformation);
+
             return RedirectToAction(nameof(Index));
         }
 
@@ -87,6 +98,9 @@
             await this.userManager.RemoveFromRoleAsync(user, model.Role);
 
             TempData.AddSuccessMessage($"User {user.UserName} successfully removed from the {model.Role} role.");
+
+            var additionalInformation = user.UserName + " " + model.Role;
+            await this.logService.CreateLogAsync(User.Identity.Name, LogType.RemoveFromRole, additionalInformation);
 
             return RedirectToAction(nameof(Index));
         }

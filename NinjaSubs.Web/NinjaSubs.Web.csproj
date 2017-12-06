@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <Compile Remove="Areas\Admin\Models\Users\AddOrRemoveUserFromRoleFormModel.cs" />
+    <Compile Remove="Controllers\BaseGlobalController.cs" />
     <Compile Remove="Models\User.cs" />
   </ItemGroup>
 

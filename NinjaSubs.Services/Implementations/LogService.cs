@@ -1,8 +1,13 @@
 ﻿namespace NinjaSubs.Services.Implementations
 {
+    using AutoMapper.QueryableExtensions;
     using Data;
     using Data.Models;
     using Data.Models.Enums;
+    using Microsoft.EntityFrameworkCore;
+    using NinjaSubs.Services.Admin.Models;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     public class LogService : ILogService
@@ -26,5 +31,12 @@
             this.db.Add(log);
             await this.db.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<LogServiceModel>> AllAsync()
+            => await this.db
+                .Logs
+                .OrderByDescending(l => l.Id)
+                .ProjectTo<LogServiceModel>()
+                .ToListAsync();
     }
 }

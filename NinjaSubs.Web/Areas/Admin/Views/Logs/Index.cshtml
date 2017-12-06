@@ -1,0 +1,31 @@
+﻿@model LogListingsViewModel
+@{
+    ViewData["Title"] = "Logs";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col col-md-10 mr-auto ml-auto">
+            <div class="text-center">
+                <h1 class="display-3">@ViewData["Title"]</h1>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <ul class="list-group">
+                @foreach (var log in Model.Logs)
+                {
+                    @if (log.Type == LogType.AddToRole)
+                    {
+                        <li class="list-group-item list-group-item-success">@log</li>
+                    }
+                    @if (log.Type == LogType.RemoveFromRole)
+                    {
+                        <li class="list-group-item list-group-item-danger">@log</li>
+                    }
+                }
+            </ul>
+            <br />
+        </div>
+    </div>
+</div>
