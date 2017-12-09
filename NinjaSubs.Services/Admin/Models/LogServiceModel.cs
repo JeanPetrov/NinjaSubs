@@ -25,6 +25,15 @@
                 case LogType.RemoveFromRole:
                     message = $"remove the {this.AdditionalInformation.Split(' ')[0]} from a {this.AdditionalInformation.Split(' ')[1]} role.";
                     break;
+                case LogType.CreateArticle:
+                    message = $"create article {this.AdditionalInformation}.";
+                    break;
+                case LogType.EditArticle:
+                    message = $"edit article {this.AdditionalInformation}.";
+                    break;
+                case LogType.DeleteArticle:
+                    message = $"delete article {this.AdditionalInformation}.";
+                    break;
                 default:
                     throw new InvalidOperationException($"Invalid log type: {this.Type}.");
             }
