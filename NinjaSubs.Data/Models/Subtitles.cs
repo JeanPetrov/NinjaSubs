@@ -21,10 +21,11 @@
         [MaxLength(SubtitlesDescriptionMaxLenght)]
         public string Description { get; set; }
 
-        DateTime PublishDate { get; set; }
+        public DateTime PublishDate { get; set; }
 
         public LanguageType Language { get; set; }
 
+        [Required]
         public byte[] File { get; set; }
 
         public int DownloadCount { get; set; } = 0;
@@ -32,6 +33,6 @@
         public string AuthorId { get; set; }
         public User Author { get; set; }
 
-        public IEnumerable<GenreSubtitles> Genres { get; set; } = new List<GenreSubtitles>();
+        public ICollection<GenreSubtitles> Genres { get; set; } = new List<GenreSubtitles>();
     }
 }

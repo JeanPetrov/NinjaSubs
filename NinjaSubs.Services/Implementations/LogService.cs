@@ -5,7 +5,7 @@
     using Data.Models;
     using Data.Models.Enums;
     using Microsoft.EntityFrameworkCore;
-    using NinjaSubs.Services.Admin.Models;
+    using NinjaSubs.Services.Models;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;

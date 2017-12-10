@@ -1,4 +1,5 @@
 ﻿@model LogListingsViewModel
+
 @{
     ViewData["Title"] = "Logs";
 }
@@ -15,11 +16,15 @@
             <ul class="list-group">
                 @foreach (var log in Model.Logs)
                 {
-                    @if (log.Type == LogType.AddToRole || log.Type == LogType.CreateArticle)
+                    @if (log.Type == LogType.AddToRole || log.Type == LogType.CreateArticle || log.Type == LogType.AddNewSubtitles)
                     {
                         <li class="list-group-item list-group-item-success">@log</li>
                     }
-                    @if (log.Type == LogType.RemoveFromRole)
+                    @if (log.Type == LogType.EditArticle || log.Type == LogType.EditSubtitles)
+                    {
+                        <li class="list-group-item list-group-item-warning">@log</li>
+                    }
+                    @if (log.Type == LogType.RemoveFromRole || log.Type == LogType.DeleteArticle || log.Type == LogType.DeleteSubtitles)
                     {
                         <li class="list-group-item list-group-item-danger">@log</li>
                     }

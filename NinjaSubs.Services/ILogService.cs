@@ -1,7 +1,7 @@
 ﻿namespace NinjaSubs.Services
 {
     using Data.Models.Enums;
-    using NinjaSubs.Services.Admin.Models;
+    using NinjaSubs.Services.Models;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 

@@ -16,8 +16,8 @@
 
         public DateTime Birthdate { get; set; }
 
-        public IEnumerable<Subtitles> Subtitles { get; set; } = new List<Subtitles>();
+        public ICollection<Subtitles> Subtitles { get; set; } = new List<Subtitles>();
 
-        public IEnumerable<Article> Articles { get; set; } = new List<Article>();
+        public ICollection<Article> Articles { get; set; } = new List<Article>();
     }
 }

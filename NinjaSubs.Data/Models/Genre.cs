@@ -14,6 +14,6 @@
         [MaxLength(GenerNameMaxLength)]
         public string Name { get; set; }
 
-        public IEnumerable<GenreSubtitles> Subtitles { get; set; } = new List<GenreSubtitles>();
+        public ICollection<GenreSubtitles> Subtitles { get; set; } = new List<GenreSubtitles>();
     }
 }

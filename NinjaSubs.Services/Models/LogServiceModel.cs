@@ -1,4 +1,4 @@
-﻿namespace NinjaSubs.Services.Admin.Models
+﻿namespace NinjaSubs.Services.Models
 {
     using NinjaSubs.Common.AutoMapper;
     using NinjaSubs.Data.Models;
@@ -33,6 +33,15 @@
                     break;
                 case LogType.DeleteArticle:
                     message = $"delete article {this.AdditionalInformation}.";
+                    break;
+                case LogType.AddNewSubtitles:
+                    message = $"added new subtitles {this.AdditionalInformation}.";
+                    break;
+                case LogType.EditSubtitles:
+                    message = $"edit subtitles {this.AdditionalInformation}.";
+                    break;
+                case LogType.DeleteSubtitles:
+                    message = $"delete subtitles {this.AdditionalInformation}.";
                     break;
                 default:
                     throw new InvalidOperationException($"Invalid log type: {this.Type}.");
