@@ -1,0 +1,28 @@
+﻿@model SearchViewModel
+
+@{
+    ViewData["Title"] = $"Search Results For {Model.SearchText}";
+}
+<h2>@ViewData["Title"]</h2>
+
+@if (Model.Subtitles.Any())
+{
+    @foreach (var subs in Model.Subtitles)
+    {
+        <li class="list-group-item">
+            <a asp-action="Details" asp-route-id="@subs.Id" asp-route-title="@subs.Title.ToFriendlyUrl()">@subs.Title</a>
+            <br />
+            <small>published by @subs.Author on @subs.PublishDate.ToShortDateString()</small>
+            <br />
+            <a asp-action="DownloadSubs" asp-route-id="@subs.Id" class="btn btn-primary">Download</a>
+            <p>DownloadCount: @subs.DownloadCount</p>
+            <br />
+            <p>Language: @subs.Language</p>
+            <br />
+        </li>
+    }
+}
+else
+{
+    <h3>Not found subtitles.</h3>
+}

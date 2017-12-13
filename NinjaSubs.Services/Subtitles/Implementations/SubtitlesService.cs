@@ -31,6 +31,18 @@
                 .ProjectTo<SubtitlesListingServiceModel>()
                 .ToListAsync();
 
+        public async Task<IEnumerable<SubtitlesListingServiceModel>> FindeAsync(string searchText,LanguageType language)
+        {
+            searchText = searchText ?? string.Empty;
+
+            return await this.db
+                .Subtitless
+                .OrderByDescending(a => a.PublishDate)
+                .Where(s => s.Title.ToLower().Contains(searchText.ToLower()) && s.Language == language)
+                .ProjectTo<SubtitlesListingServiceModel>()
+                .ToListAsync();
+        }
+
         public async Task<int> TotalAsync()
             => await this.db.Subtitless.CountAsync();
 
