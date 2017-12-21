@@ -8,7 +8,10 @@
     using NinjaSubs.Services.Admin;
     using NinjaSubs.Web.Areas.Admin.Models.Users;
     using NinjaSubs.Web.Infrastructure.Extensions;
+    using System;
     using System.Threading.Tasks;
+
+    using static Services.ServiceConstants;
 
     public class UsersController : BaseAdminController
     {
@@ -28,14 +31,20 @@
             this.logService = logService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            var users = await this.adminUserService.AllAsync();
+            var totalUsers = await this.adminUserService.TotalAsync();
 
+            if (page > (int)Math.Ceiling((double)totalUsers / UsersPageSize) || page < 1)
+            {
+                return RedirectToAction(nameof(Index));
+            }
 
             return View(new UserListingsViewModel
             {
-                UsersWithRoles = users
+                UsersWithRoles = await this.adminUserService.AllAsync(page),
+                CurrentPage = page,
+                TotalUsers = totalUsers
             });
         }
 

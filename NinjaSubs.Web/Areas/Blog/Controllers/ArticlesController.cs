@@ -115,9 +115,11 @@
                 return RedirectToAction(nameof(Index));
             }
 
+            var oldTitle = article.Title;
+
             await this.articleService.UpdateArticleAsync(id, model.Title, model.Content);
 
-            TempData.AddSuccessMessage($"Successfully edited article {model.Title}.");
+            TempData.AddSuccessMessage($"Successfully edited article {oldTitle}.");
 
             await this.logService.CreateLogAsync(User.Identity.Name, LogType.EditArticle, model.Title);
 

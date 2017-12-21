@@ -1,6 +1,8 @@
 @using Microsoft.AspNetCore.Identity
 @using NinjaSubs.Web.Models
 
+@using static NinjaSubs.Web.WebConstants
+
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
@@ -8,11 +10,26 @@
 {
     <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
         <ul class="nav navbar-nav navbar-right">
+            @if (User.IsInRole(AdminRole))
+            {
+                <li><a asp-area="Admin" asp-controller="Users" asp-action="Index" class="nav-link">Users</a></li>
+                <li><a asp-area="Admin" asp-controller="Logs" asp-action="Index" class="nav-link">Logs</a></li>
+                <li><a asp-area="Blog" asp-controller="Articles" asp-action="Create" class="nav-link">Create Article</a></li>
+                <li><a asp-area="" asp-controller="Subtitles" asp-action="AddNew" class="nav-link">Add new Subs</a></li>
+            }
+            @if (User.IsInRole(WebConstants.BlogAuthorRole))
+            {
+                <li><a asp-area="Blog" asp-controller="Articles" asp-action="Create" class="nav-link">Create Article</a></li>
+            }
+            @if (User.IsInRole(WebConstants.TranslatorRole))
+            {
+                <li><a asp-area="" asp-controller="Subtitles" asp-action="AddNew" class="nav-link">Add new Subs</a></li>
+            }
             <li>
-                <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage" class="nav-link">Hello @UserManager.GetUserName(User)!</a>
             </li>
             <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log out</button>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link nav-link" >Log out</button>
             </li>
         </ul>
     </form>
@@ -20,7 +37,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
-        <li><a asp-area="" asp-controller="Account" asp-action="Login">Log in</a></li>
+        <li><a asp-area="" asp-controller="Account" asp-action="Register" class="nav-link">Register</a></li>
+        <li><a asp-area="" asp-controller="Account" asp-action="Login" class="nav-link">Log in</a></li>
     </ul>
 }

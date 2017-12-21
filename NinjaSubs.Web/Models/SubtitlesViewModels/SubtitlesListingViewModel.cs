@@ -2,10 +2,11 @@
 {
     using NinjaSubs.Services;
     using NinjaSubs.Services.Subtitles.Models;
+    using NinjaSubs.Web.Models.HomeViewModels;
     using System;
     using System.Collections.Generic;
 
-    public class SubtitlesListingViewModel
+    public class SubtitlesListingViewModel : SearchFormModel
     {
         public IEnumerable<SubtitlesListingServiceModel> Subtitles { get; set; }
 

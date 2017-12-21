@@ -10,6 +10,8 @@
     using System.Linq;
     using System.Threading.Tasks;
 
+    using static ServiceConstants;
+
     public class LogService : ILogService
     {
         private readonly NinjaSubsDbContext db;
@@ -32,11 +34,16 @@
             await this.db.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<LogServiceModel>> AllAsync()
+        public async Task<IEnumerable<LogServiceModel>> AllAsync(int page = 1)
             => await this.db
                 .Logs
                 .OrderByDescending(l => l.Id)
+                .Skip((page - 1) * LogsPageSize)
+                .Take(LogsPageSize)
                 .ProjectTo<LogServiceModel>()
                 .ToListAsync();
+
+        public async Task<int> TotalAsync()
+            => await this.db.Logs.CountAsync();
     }
 }

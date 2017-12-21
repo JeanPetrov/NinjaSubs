@@ -7,11 +7,10 @@
     public class PublishOrEditArticleFormModel
     {
         [Required]
-        [MinLength(ArticleTitleMinLenght)]
-        [MaxLength(ArticleTitleMaxLenght)]
+        [StringLength(ArticleTitleMaxLenght, ErrorMessage = "The {0} must be between {2} and {1} characters." ,MinimumLength = ArticleTitleMinLenght)]
         public string Title { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The {0} is Required!")]
         public string Content { get; set; }
     }
 }

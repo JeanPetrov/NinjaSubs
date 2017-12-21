@@ -4,14 +4,20 @@
     ViewData["Title"] = Model.Title;
 }
 
-<h2>@ViewData["Title"]</h2>
-<h4><em>published by @Model.Author on @Model.PublishDate.ToShortDateString()</em></h4>
-<div>
+<h1 class="text-center" style="padding:30px">@ViewData["Title"]</h1>
+
+<h4 class="text-center"><em>published by @Model.Author on @Model.PublishDate.ToShortDateString()</em></h4>
+
+<hr />
+
+<div style="padding:30px">
     @Html.Raw(Model.Content)
 </div>
 
 @if (User.Identity.Name == Model.Author || User.IsInRole("Admin"))
 {
-    <a asp-action="Edit" asp-route-id="@Model.Id" asp-route-title="@Model.Title.ToFriendlyUrl()" class="btn btn-primary">Edit</a>
-    <a asp-action="Delete" asp-route-id="@Model.Id" asp-route-title="@Model.Title.ToFriendlyUrl()" class="btn btn-danger">Delete</a>
+    <div class="text-center">
+        <a asp-action="Edit" asp-route-id="@Model.Id" asp-route-title="@Model.Title.ToFriendlyUrl()" class="btn btn-warning">Edit</a>
+        <a asp-action="Delete" asp-route-id="@Model.Id" asp-route-title="@Model.Title.ToFriendlyUrl()" class="btn btn-danger">Delete</a>
+    </div>
 }

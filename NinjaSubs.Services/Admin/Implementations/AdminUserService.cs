@@ -11,6 +11,8 @@
     using System.Linq;
     using System.Threading.Tasks;
 
+    using static ServiceConstants;
+
     public class AdminUserService : IAdminUserService
     {
         private readonly NinjaSubsDbContext db;
@@ -24,7 +26,7 @@
             this.userManager = userManager;
         }
 
-        public async Task<IEnumerable<AdminUserWithRolesListingServiceModel>> AllAsync()
+        public async Task<IEnumerable<AdminUserWithRolesListingServiceModel>> AllAsync(int page = 1)
         {
             var users = await this.db
                 .Users
@@ -61,7 +63,10 @@
                 });
             }
             
-            return result;
+            return result.Skip((page - 1) * UsersPageSize).Take(UsersPageSize);
         }
+
+        public async Task<int> TotalAsync()
+            => await this.db.Users.CountAsync();
     }
 }

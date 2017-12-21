@@ -12,6 +12,10 @@
 
         Task<IEnumerable<SubtitlesListingServiceModel>> FindeAsync(string searchText, LanguageType language);
 
+        Task<IEnumerable<SubtitlesListingServiceModel>> LatestSubs();
+
+        Task<IEnumerable<SubtitlesListingServiceModel>> Top10DownloadSubs();
+
         Task<int> TotalAsync();
 
         Task<SubtitlesDetailsServiceModel> ById(int id);

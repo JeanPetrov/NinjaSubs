@@ -1,0 +1,15 @@
+﻿@model SearchFormModel
+
+<div class="container" style="margin-bottom:30px">
+    <div class="row">
+        <div class="col col-md-10 mr-auto ml-auto">
+            <form asp-controller="Home" asp-action="Search" class="form-inline my-2 my-lg-0">
+                <label class="mr-sm-2 ml-sm-5">Movie: </label>
+                <input asp-for="SearchText" class="form-control mr-sm-5" placeholder="Search..." />
+                <label asp-for="Language" class="mr-sm-2"></label>
+                <select asp-for="@Model.Language" asp-items="Html.GetEnumSelectList<LanguageType>() " class="form-control mr-sm-5"></select>
+                <input type="submit" class="btn btn-warning pull-right ml-sm-5" value="Search" />
+            </form>
+        </div>
+    </div>
+</div>

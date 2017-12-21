@@ -73,10 +73,9 @@
         [ValidateModelState]
         public async Task<IActionResult> AddNew(PublishOrEditSubtitlesFormModel model)
         {
-            if (!model.File.FileName.EndsWith(".zip"))
+            if (!model.File.FileName.EndsWith(".zip") || model.File.Length > 1024 * 1024)
             {
-                TempData.AddErrorMessage("Your file shoud be a '.zip' file!");
-                //ModelState.AddModelError(string.Empty, "Your file shoud be a '.zip' file!");
+                TempData.AddErrorMessage("Your file shoud be a '.zip' file with no more than 1 MB in size!");
                 return View();
             }
 
@@ -96,6 +95,7 @@
             return RedirectToAction(nameof(Index));
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> DownloadSubs(int id)
         {
             var subtitles = await this.subtitlesService.ById(id);

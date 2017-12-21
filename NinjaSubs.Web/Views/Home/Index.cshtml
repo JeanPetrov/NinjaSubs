@@ -4,21 +4,60 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="jumbotron home-jumbotron">
-    <h1 class="text-center">Welcome to Ninja Subs!</h1>
+<div class="jumbotron">
+    <h1 class="display-3">Welcome to Ninja Subs!</h1>
+    <p class="lead text-center">This is a fan-made subs site.</p>
 </div>
 
+@await Html.PartialAsync("_SubtitlesSearch")
+
+<br />
+<br />
+<br />
+
 <div class="row">
-    <form asp-action="Search">
-        <div class="col-md-8">
-            <input asp-for="SearchText" class="form-control" placeholder="Search..." />
-        </div>
-        <div class="col-md-2">
-            <label asp-for="Language"></label>
-            <select asp-for="@Model.Language" asp-items="Html.GetEnumSelectList<LanguageType>() " class="form-control"></select>
-        </div>
-        <div class="col-md-2">
-            <input type="submit" class="btn btn-warning pull-right" value="Search" />
-        </div>
-    </form>
+    <div class="col col-md-8">
+        <h4 class="text-center">New Subtitles</h4>
+        <ul class="list-group">
+            @foreach (var subs in Model.LatestSubtitles)
+            {
+                <li class="list-group-item ">
+                    <div class="text-center">
+                        <a asp-area="" asp-controller="Subtitles" asp-action="Details" asp-route-id="@subs.Id">@subs.Title | Language: @subs.Language</a>
+                    </div>
+                    <div class="text-center">
+                        <small>Added by @subs.Author on @subs.PublishDate.ToShortDateString()</small>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col col-md-4">
+        <h4 class="text-center">Most Downloads Subs</h4>
+        <ul class="list-group">
+            @{
+                int count = 1;
+
+                @foreach (var subs in Model.MostDownloadSubtitles)
+                {
+                    <li class="list-group-item ">
+                        <div class="row">
+                           <h5 style="padding-left:10px">@(count++)</h5>
+                            <div class="col col-11">
+                                <div class="text-center">
+                                    <a asp-area="" asp-controller="Subtitles" asp-action="Details" asp-route-id="@subs.Id">@subs.Title | Language: @subs.Language</a>
+                                </div>
+                                <div class="text-center">
+                                    Downloads: @subs.DownloadCount
+                                </div>
+                                <div class="text-center">
+                                    <small>Added by @subs.Author on @subs.PublishDate.ToShortDateString()</small>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
 </div>

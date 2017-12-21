@@ -5,6 +5,8 @@
 
     public class HomeIndexViewModel : SearchFormModel
     {
-        public IEnumerable<SubtitlesListingServiceModel> Subtitles { get; set; }
+        public IEnumerable<SubtitlesListingServiceModel> LatestSubtitles { get; set; }
+
+        public IEnumerable<SubtitlesListingServiceModel> MostDownloadSubtitles { get; set; }
     }
 }

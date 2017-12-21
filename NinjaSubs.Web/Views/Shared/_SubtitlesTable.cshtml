@@ -1,0 +1,51 @@
+﻿@model SubtitlesListingViewModel
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Language
+            </th>
+            <th>
+                Added by
+            </th>
+            <th>
+                Added on
+            </th>
+            <th>
+                Downloads
+            </th>
+            <th>
+                Details
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var subs in Model.Subtitles)
+        {
+            <tr>
+                <td>
+                    <a asp-area="" asp-controller="Subtitles" asp-action="DownloadSubs" asp-route-id="@subs.Id">@subs.Title</a>
+                </td>
+                <td>
+                    @subs.Language
+                </td>
+                <td>
+                    @subs.Author
+                </td>
+                <td>
+                    @subs.PublishDate
+                </td>
+                <td>
+                    @subs.DownloadCount
+                </td>
+                <td>
+                    <a asp-area="Subtitles" asp-controller="Subtitles" asp-action="Details" asp-route-id="@subs.Id" asp-route-title="@subs.Title.ToFriendlyUrl()">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

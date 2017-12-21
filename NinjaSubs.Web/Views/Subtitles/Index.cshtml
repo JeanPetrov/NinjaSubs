@@ -4,36 +4,88 @@
     ViewData["Title"] = "Subtitles";
 }
 
-<h2>@ViewData["Title"]</h2>
+<h1 class="text-center" style="padding:30px">@ViewData["Title"]</h1>
 
-<div class="row">
-    <div class="col-md-6">
-        <ul class="list-group">
-            @foreach (var subtitles in Model.Subtitles)
-            {
-                <li class="list-group-item">
-                    <a asp-action="Details" asp-route-id="@subtitles.Id" asp-route-title="@subtitles.Title.ToFriendlyUrl()">@subtitles.Title</a>
-                    <br />
-                    <small>published by @subtitles.Author on @subtitles.PublishDate.ToShortDateString()</small>
-                    <br />
-                    <a asp-action="DownloadSubs" asp-route-id="@subtitles.Id" class="btn btn-primary">Download</a>
-                </li>
-            }
-        </ul>
-    </div>
-</div>
+@await Html.PartialAsync("_SubtitlesSearch")
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Language
+            </th>
+            <th>
+                Added by
+            </th>
+            <th>
+                Added on
+            </th>
+            <th>
+                Downloads
+            </th>
+            <th>
+                Details
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var subs in Model.Subtitles)
+        {
+            <tr>
+                <td>
+                    <a asp-area="" asp-controller="Subtitles" asp-action="DownloadSubs" asp-route-id="@subs.Id" >@subs.Title</a>
+                </td>
+                <td>
+                    @subs.Language
+                </td>
+                <td>
+                    @subs.Author
+                </td>
+                <td>
+                    @subs.PublishDate
+                </td>
+                <td>
+                    @subs.DownloadCount
+                </td>
+                <td>
+                    <a asp-area="Subtitles" asp-controller="Subtitles" asp-action="Details" asp-route-id="@subs.Id" asp-route-title="@subs.Title.ToFriendlyUrl()">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 @if (Model.TotalSubtitles > Model.Subtitles.Count())
 {
     <ul class="pagination">
-        <li class="@(Model.CurrentPage == 1 ? "disabled" : string.Empty)">
-            <a asp-route-page="@Model.PreviousPage"
+        <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : string.Empty)">
+            <a class="page-link" asp-route-page="@Model.PreviousPage"
                aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
-        <li class="@(Model.CurrentPage == Model.TotalPages ? "disabled" : string.Empty)">
-            <a asp-route-page="@Model.NextPage"
+
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            @if (Model.CurrentPage == i)
+            {
+                <li class="page-item active">
+                    <a class="page-link" asp-route-page="@i">@i</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-route-page="@i">@i</a>
+                </li>
+            }
+        }
+
+        <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : string.Empty)">
+            <a class="page-link" asp-route-page="@Model.NextPage"
                aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
             </a>

@@ -16,22 +16,22 @@
             this.subtitlesService = subtitlesService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(HomeIndexViewModel model)
         {
-            return View();
+            return View(new HomeIndexViewModel
+            {
+                LatestSubtitles = await this.subtitlesService.LatestSubs(),
+                MostDownloadSubtitles = await this.subtitlesService.Top10DownloadSubs()
+            });
         }
 
         public async Task<IActionResult> Search(SearchFormModel model)
+        => View(new SearchViewModel
         {
-            var viewModel = new SearchViewModel
-            {
-                SearchText = model.SearchText
-            };
-
-            viewModel.Subtitles = await this.subtitlesService.FindeAsync(model.SearchText, model.Language);
-
-            return View(viewModel);
-        }
+            SearchText = model.SearchText,
+            Subtitles = await this.subtitlesService.FindeAsync(model.SearchText, model.Language),
+            Language = model.Language
+        });
 
         public IActionResult About()
         {

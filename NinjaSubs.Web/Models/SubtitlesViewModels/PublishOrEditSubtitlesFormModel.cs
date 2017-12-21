@@ -9,22 +9,19 @@
     public class PublishOrEditSubtitlesFormModel
     {
         [Required]
-        [MinLength(SubtitlesTitleMinLength)]
-        [MaxLength(SubtitlesTitleMaxLength)]
+        [StringLength(SubtitlesTitleMaxLength, ErrorMessage = "The {0} must be between {2} and {1} characters.", MinimumLength = SubtitlesTitleMinLength)]
         public string Title { get; set; }
 
-        [Required]
-        [MinLength(SubtitlesDescriptionMinLenght)]
-        [MaxLength(SubtitlesDescriptionMaxLenght)]
+        [Required(ErrorMessage = "The {0} is Required!")]
         public string Description { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The {0} is Required!")]
         public LanguageType Language { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The {0} is Required!")]
         public IFormFile File { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The {0} is Required!")]
         public string Genres { get; set; }
     }
 }

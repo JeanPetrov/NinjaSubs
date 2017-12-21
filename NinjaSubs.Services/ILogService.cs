@@ -9,6 +9,8 @@
     {
         Task CreateLogAsync(string username, LogType type, string additionalInformation);
 
-        Task<IEnumerable<LogServiceModel>> AllAsync();
+        Task<IEnumerable<LogServiceModel>> AllAsync(int page = 1);
+
+        Task<int> TotalAsync();
     }
 }

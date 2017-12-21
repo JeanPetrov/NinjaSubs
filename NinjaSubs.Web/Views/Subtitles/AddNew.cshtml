@@ -4,7 +4,7 @@
     ViewData["Title"] = "Add New Subtitles";
 }
 
-<h2>@ViewData["Title"]</h2>
+<h1 class="text-center" style="padding:30px">@ViewData["Title"]</h1>
 
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 <script>
@@ -13,38 +13,40 @@
     });
 </script>
 
-<div class="row">
-    <div class="col-md-8">
-        <form method="post" enctype="multipart/form-data">
-            @*<div asp-validation-summary="All"></div>*@
-            <br />
-            <div class="form-group">
-                <label asp-for="Title"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description"></label>
-                <textarea asp-for="Description" rows="15" class="form-control"></textarea>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Language"></label>
-                <select asp-for="@Model.Language" asp-items="Html.GetEnumSelectList<LanguageType>() " class="form-control" ></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="File"></label>
-                <input type="file" name="File" style="display: none" accept=".zip" />
-                <button type="button" class="btn btn-default" onclick="document.getElementsByName('File')[0].click()">Choose your file!</button>
-                <span asp-validation-for="File" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Genres"></label>
-                <input asp-for="Genres" class="form-control" />
-                <span asp-validation-for="Genres" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn btn-default">Add new Subtitles</button>
-        </form>
+<div class="container">
+    <div class="row">
+        <div class="col col-md-8 mr-auto ml-auto">
+            <form method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <br />
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <textarea asp-for="Description" rows="15" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Language"></label>
+                    <select asp-for="@Model.Language" asp-items="Html.GetEnumSelectList<LanguageType>() " class="form-control"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="File"></label>
+                    <input type="file" name="File" accept=".zip" class="form-control-file" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">The file shoud be a '.zip'! Maximum size 1 MB!</small>
+                    <span asp-validation-for="File" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Genres"></label>
+                    <input asp-for="Genres" class="form-control" />
+                    <span asp-validation-for="Genres" class="text-danger"></span>
+                </div>
+                <div class="text-center"><button type="submit" class="btn btn-success">Add new Subtitles</button></div>
+            </form>
+        </div>
     </div>
 </div>
 

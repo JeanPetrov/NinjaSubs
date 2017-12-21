@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Content Remove="Areas\Admin\Views\Users\Confirm.cshtml" />
+    <Content Remove="Views\Shared\_SubtitlesTable.cshtml" />
     <Content Remove="Views\Subtitles\Edit.cshtml" />
   </ItemGroup>
 

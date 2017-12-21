@@ -43,6 +43,22 @@
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<SubtitlesListingServiceModel>> LatestSubs()
+            => await this.db
+                .Subtitless
+                .OrderByDescending(s => s.Id)
+                .Take(LatestSubsCount)
+                .ProjectTo<SubtitlesListingServiceModel>()
+                .ToListAsync();
+
+        public async Task<IEnumerable<SubtitlesListingServiceModel>> Top10DownloadSubs()
+            => await this.db
+                .Subtitless
+                .OrderByDescending(s => s.DownloadCount)
+                .Take(Top10DownloadSubsCount)
+                .ProjectTo<SubtitlesListingServiceModel>()
+                .ToListAsync();
+
         public async Task<int> TotalAsync()
             => await this.db.Subtitless.CountAsync();
 

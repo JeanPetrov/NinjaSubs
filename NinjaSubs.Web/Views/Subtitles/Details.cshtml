@@ -1,30 +1,40 @@
 ﻿@model SubtitlesDetailsServiceModel
-
 @{
-    ViewData["Title"] = "Subs Details";
+    ViewData["Title"] = Model.Title;
 }
+<h1 class="text-center" style="padding:30px">@ViewData["Title"]</h1>
 
-<h2>@ViewData["Title"]</h2>
+<h4 class="text-center"><em>added by @Model.Author on @Model.PublishDate.ToShortDateString()</em></h4>
 
-<h4><em>published by @Model.Author on @Model.PublishDate.ToShortDateString()</em></h4>
-<div>
-    @Html.Raw(Model.Description)
+<hr />
+
+<div class="container">
+    <div class="row">
+        <div class="col mr-auto ml-auto">
+            @Html.Raw(Model.Description)
+        </div>
+    </div>
+    <div class="row text-center" style="padding:20px">
+        <div class="col col-md-6">
+            <p style="font-size:18px">Language: @Model.Language.ToString()</p>
+        </div>
+        <div class="col col-md-6">
+            <p style="font-size:18px">Downloads: @Model.DownloadCount</p>
+        </div>
+    </div>
+    <div class="row text-center" style="padding:20px">
+        <div class="col col-md-12">
+            <p style="font-size:18px">Genres: @string.Join(", ", Model.Genres)</p>
+        </div>
+    </div>
 </div>
 
-<div>
-    Downloads: @Model.DownloadCount
-</div>
-<div>
-    Genres: @string.Join(", ", Model.Genres)
-</div>
-<div>
-    Language: @Model.Language.ToString()
-</div>
 
-<a asp-action="DownloadSubs" asp-route-id="@Model.Id" class="btn btn-primary">Download</a>
+<div class="text-center">
+    <a asp-action="DownloadSubs" asp-route-id="@Model.Id" class="btn btn-primary">Download</a>
 
-@if (User.Identity.Name == Model.Author || User.IsInRole("Admin"))
-{
-    <a asp-action="Delete" asp-route-id="@Model.Id" asp-route-title="@Model.Title.ToFriendlyUrl()" class="btn btn-danger">Delete</a>
-}
-
+    @if (User.Identity.Name == Model.Author || User.IsInRole("Admin"))
+    {
+        <a asp-action="Delete" asp-route-id="@Model.Id" asp-route-title="@Model.Title.ToFriendlyUrl()" class="btn btn-danger">Delete</a>
+    }
+</div>
